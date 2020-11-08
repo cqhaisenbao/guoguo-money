@@ -2,7 +2,6 @@ import styled from "styled-components";
 import {Link} from "react-router-dom";
 import React from "react";
 import Icon from "./icon";
-//用require引入svg
 
 
 const NavWrapper = styled.nav`

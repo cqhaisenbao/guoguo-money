@@ -15,6 +15,7 @@ function App() {
     // @ts-ignore
     return (
         <Router>
+            {/*switch默认渲染区域*/}
             <Switch>
                 <Route path="/tags">
                     <Tags/>
@@ -25,6 +26,7 @@ function App() {
                 <Route path="/statistics">
                     <Statistics/>
                 </Route>
+                {/*默认路由*/}
                 <Redirect exact from="/" to="/money"/>
                 <Route path="*">
                     <NoMatch/>
