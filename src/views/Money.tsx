@@ -3,7 +3,8 @@ import React from "react";
 import styled from "styled-components";
 
 const TagsSection = styled.section`
-  background: #fff;padding: 12px 16px;
+  background: #fff;padding: 12px 16px;flex-grow: 1;display: flex;flex-direction: column;
+  justify-content: flex-end;align-items: flex-start;
   >ol{margin: 0 -12px ;
   >li{background: #D9D9D9;border-radius: 18px;
     display: inline-block;padding: 3px 18px;
@@ -100,9 +101,15 @@ flex-direction: column;
   }
 `;
 
+// 添加自定义styled
+const MyLayout=styled(Layout)`
+  display: flex;
+  flex-direction: column;
+`
+
 function Money() {
     return (
-        <Layout>
+        <MyLayout>
             <TagsSection>
                 <ol>
                     <li>衣</li>
@@ -143,7 +150,7 @@ function Money() {
                     <button className='dot'>.</button>
                 </div>
             </NumberPadSection>
-        </Layout>
+        </MyLayout>
     )
 }
 
