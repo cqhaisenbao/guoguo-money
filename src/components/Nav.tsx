@@ -38,6 +38,7 @@ const Nav = () => {
         <NavWrapper>
             <ul>
                 <li>
+                    {/*图标选中高亮*/}
                     <NavLink to="/tags" activeClassName="selected">
                         <Icon name="tag"/>
                         标签页
