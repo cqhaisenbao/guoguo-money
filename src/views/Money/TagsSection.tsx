@@ -43,6 +43,7 @@ const TagsSection: React.FunctionComponent = () => {
             <ol>
                 {tags.map(tag =>
                     <li key={tag} onClick={() => {
+                        // 把tag参数传给onToggleTag，传参必须这样写，如果onClick=onToggleTag(tag)会在当时就执行，返回undefined
                         onToggleTag(tag)
                     }} className={selectedTags.indexOf(tag) >= 0 ? 'selected' : ''}>{tag}</li>
                 )}
