@@ -1,5 +1,5 @@
 import Layout from "../components/Layout";
-import React, {useState} from "react";
+import React, {useEffect, useState} from "react";
 import styled from "styled-components";
 import {CategorySection} from "./Money/CategorySection";
 import {NoteSection} from "./Money/NoteSection";
@@ -26,9 +26,11 @@ function Money() {
     const onChange = (obj: Partial<Selected>) => {
         setSelected({...selected, ...obj})
     };
+    useEffect(()=>{
+        console.log(selected);
+    },[selected]);
     return (
         <MyLayout>
-            {console.log(selected)}
             <TagsSection value={selected.tags}
                          onChange={tags => onChange({tags})}/>
             <NoteSection value={selected.note}
@@ -36,10 +38,9 @@ function Money() {
             <CategorySection value={selected.category}
                              onChange={category => onChange({category})}/>
             <NumberPadSection value={selected.amount}
-                              onChange={amount => onChange({amount})}/>
-            onOk={() => {
-            console.log('ok');
-        }}
+                              onChange={amount => onChange({amount})}
+                              onOk={() => {
+                              }}
             />
         </MyLayout>
     )
