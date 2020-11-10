@@ -9,7 +9,7 @@ type Props = {
     onOk?: () => void
 }
 
-const NumberPadSection: React.FunctionComponent<Props> = (props) => {
+const NumberPadSection: React.FC<Props> = (props) => {
     const output = props.value.toString();
     //setOutput不是直接更改这里的output，而是通过value先弄出去，渲染后再传回来新的
     const setOutput = (output: string) => {
