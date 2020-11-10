@@ -12,10 +12,14 @@ const Wrapper = styled.section`
   background: none;border: none;padding: 2px 4px;border-bottom: 1px solid #333;color: #666;margin-top: 8px;}
 `;
 
-// 声明TagsSection是一个React函数组件
-const TagsSection: React.FunctionComponent = () => {
+// 声明TagsSection是一个React函数组件；除了接受默认的children，还接受一个selected，类型是string[]
+type Props = {
+    value: string[] ;
+    onChange:(selected:string[])=>void;  /*函数的参数和返回值都为空*/
+}
+const TagsSection: React.FunctionComponent<Props> = (props) => {
     const [tags, setTags] = useState<string[]>(['衣', '食', '住', '行']);
-    const [selectedTags, setSelectedTags] = useState<string[]>([]);
+    const selectedTags=props.value;
     const onAddTag = () => {
         const tagName = window.prompt('新标签的名称为');
         if (tagName !== null) {
@@ -25,9 +29,9 @@ const TagsSection: React.FunctionComponent = () => {
     const onToggleTag = (tag: string) => {
         const index = selectedTags.indexOf(tag);
         if (index >= 0) {
-            setSelectedTags(selectedTags.filter(t => t !== tag))
+            props.onChange(selectedTags.filter(t => t !== tag))
         } else {
-            setSelectedTags([...selectedTags, tag])
+            props.onChange([...selectedTags, tag])
         }
     };
     return (
