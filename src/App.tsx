@@ -10,10 +10,11 @@ import Statistics from "./views/Statistics";
 import Tags from "./views/Tags";
 import NoMatch from "./views/NoMatch";
 import styled from "styled-components";
+import {Tag} from "./views/Tag";
 
 const AppWrapper = styled.div`
 color: #333333;
-`
+`;
 
 function App() {
     // @ts-ignore
@@ -22,13 +23,17 @@ function App() {
             <Router>
                 {/*switch默认渲染区域*/}
                 <Switch>
-                    <Route path="/tags">
+                    {/*exact={true}表示精确匹配*/}
+                    <Route path="/tags" exact={true}>
                         <Tags/>
                     </Route>
-                    <Route path="/money">
+                    <Route path="/tags/:tags" exact>
+                        <Tag/>
+                    </Route>
+                    <Route path="/money" exact>
                         <Money/>
                     </Route>
-                    <Route path="/statistics">
+                    <Route path="/statistics" exact>
                         <Statistics/>
                     </Route>
                     {/*默认路由*/}
