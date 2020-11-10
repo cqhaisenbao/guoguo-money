@@ -28,7 +28,7 @@ const Wrapper = styled.section`
 const CategorySection: React.FunctionComponent = () => {
     const categoryMap = {'-': '支出', '+': '收入'};
     const [categoryList] = useState<('-' | '+')[]>(['-', '+']);
-    const [category, setCategory] = useState('-');
+    const [category, setCategory] = useState('+');
     return (
         <Wrapper>
             <ul>
@@ -38,6 +38,7 @@ const CategorySection: React.FunctionComponent = () => {
                             setCategory(c)
                         }}
                     >{categoryMap[c]}
+                        {}
                     </li>
                 )}
             </ul>
